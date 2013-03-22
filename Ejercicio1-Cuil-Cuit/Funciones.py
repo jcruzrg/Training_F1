@@ -13,15 +13,22 @@ def valor1(codigo):
     sumar = 0
     multivalor = 0
     dni = "" #Limpiar dni
-    dni = raw_input("Ingrese el dni o el numero de la empresa")
-    cuil = codigo + dni
-    cuilformato = codigo + "-" + dni
-    cont = 0 #Inicializar cont
-    dni = codigo + dni #Dni + codigo de sexo
-    while cont < len(dni):    
-        multivalor = int(dni[cont]) * int(tuplanumeros[cont])
-        sumar = sumar + multivalor
-        cont = cont + 1
+    
+    while True: #Verificar el Dni o Numero de empresa
+        dni = raw_input("Ingrese el dni o el numero de la empresa")
+        if len(dni) == 8:
+            cuil = codigo + dni
+            cuilformato = codigo + "-" + dni
+            cont = 0 #Inicializar cont
+            dni = codigo + dni #Dni + codigo de sexo
+            while cont < len(dni):   
+                multivalor = int(dni[cont]) * int(tuplanumeros[cont])
+                sumar = sumar + multivalor
+                cont = cont + 1
+            break
+        print "Error al ingresar Dni"
+        print ""
+            
     division = sumar % 11    
     codverificador = 11 - division
     if codverificador == 10:
@@ -30,4 +37,4 @@ def valor1(codigo):
         codverificador = 0
     cuilformato = cuilformato + "-" + str(codverificador)
     cuil = cuil + str(codverificador)
-    print "Cuil= " + cuilformato   
+    print "Cuil= " + cuilformato    
