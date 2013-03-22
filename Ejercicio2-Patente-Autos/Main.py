@@ -26,7 +26,6 @@ while cont < 3:
     while cont2 < 26:
         if letras[cont2] == patente[cont]:
             verificacion = verificacion + 1
-            print diccionario[letras[cont2]]
             coleccion = diccionario[letras[cont2]]
             coleccion2 = coleccion2 + coleccion
             cont2 = cont2 + 1
@@ -46,7 +45,6 @@ else:
         while cont2 < 26:
             if letras[cont2] == patente[cont]:
                 verificacion = verificacion + 1
-                print diccionario[letras[cont2]]
                 coleccion = diccionario[letras[cont2]]
                 coleccion2 = coleccion2 + coleccion
                 cont2 = cont2 + 1
@@ -54,30 +52,19 @@ else:
         cont = cont + 1
         cont2 = 0
         patente = str(coleccion2) + str(patente[1:len(patente)])
-cont = 0
-print ""
-print ""
-print ""
-print ""
-print patente
-print len(patente)
-print ""
-print ""
-print ""
-while cont < len(patente):
-    if (cont % 2) == 0 or cont == 0:
-        suma1 = suma1 + int(patente[cont])
-    else:
-        suma2 = suma2 + int(patente[cont])
-    cont = cont + 1
-
-while suma1 >= 10:
-    coleccion2 = str(suma1)
-    suma1 = int(coleccion2[0]) + int(coleccion2[1])
-while suma2 >= 10:
-    coleccion = str(suma2)
-    suma2 = int(coleccion[0]) + int(coleccion[1])
-print suma2
-print "Codigo= " + str(suma1) + str(suma2)
+    cont = 0
+    while cont < len(patente):
+        if (cont % 2) == 0 or cont == 0:
+            suma1 = suma1 + int(patente[cont])
+        else:
+            suma2 = suma2 + int(patente[cont])
+        cont = cont + 1
+    while suma1 >= 10:
+        coleccion2 = str(suma1)
+        suma1 = int(coleccion2[0]) + int(coleccion2[1])
+    while suma2 >= 10:
+        coleccion = str(suma2)
+        suma2 = int(coleccion[0]) + int(coleccion[1])
+    print "Codigo= " + str(suma1) + str(suma2)
 # resultado = int(diccionario[patente]) + int(diccionario[patente])
 # print resultado
