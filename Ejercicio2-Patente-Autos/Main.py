@@ -7,6 +7,8 @@ Created on Mar 22, 2013
 
 cont = 0
 cont2 = 0
+suma1 = 0
+suma2 = 0
 verificacion = 0
 coleccion = ""
 coleccion2 = ""
@@ -33,10 +35,49 @@ while cont < 3:
     cont2 = 0
 if verificacion == 3:
     print "patente valida"
+    patente = str(coleccion2) + str(patente[3:6])
 else:
     print "patente invalida"
+    coleccion = ""
+    coleccion2 = ""
+    cont = 0
+    cont2 = 0
+    while cont < 1:
+        while cont2 < 26:
+            if letras[cont2] == patente[cont]:
+                verificacion = verificacion + 1
+                print diccionario[letras[cont2]]
+                coleccion = diccionario[letras[cont2]]
+                coleccion2 = coleccion2 + coleccion
+                cont2 = cont2 + 1
+            cont2 = cont2 + 1
+        cont = cont + 1
+        cont2 = 0
+        patente = str(coleccion2) + str(patente[1:len(patente)])
+cont = 0
+print ""
+print ""
+print ""
+print ""
+print patente
+print len(patente)
+print ""
+print ""
+print ""
+while cont < len(patente):
+    if (cont % 2) == 0 or cont == 0:
+        suma1 = suma1 + int(patente[cont])
+    else:
+        suma2 = suma2 + int(patente[cont])
+    cont = cont + 1
 
-patente = str(coleccion2) + str(patente[3:6])
-print patente[0]
+while suma1 >= 10:
+    coleccion2 = str(suma1)
+    suma1 = int(coleccion2[0]) + int(coleccion2[1])
+while suma2 >= 10:
+    coleccion = str(suma2)
+    suma2 = int(coleccion[0]) + int(coleccion[1])
+print suma2
+print "Codigo= " + str(suma1) + str(suma2)
 # resultado = int(diccionario[patente]) + int(diccionario[patente])
 # print resultado
