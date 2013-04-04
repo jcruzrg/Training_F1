@@ -7,7 +7,6 @@ Created on Mar 22, 2013
 
 import Funciones
 
-
 coleccion = ""  # Contiene los numeros de las letras
 letras = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',\
           'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
@@ -23,8 +22,9 @@ while True:
     verificacion = 0
     verificacion2 = 0
     veriftotal = 0
-    patente = raw_input("Ingrese el numero de patente")
-    if len(patente) <= 9:
+    # Obtiene la patente y pasa las letras a miniscula
+    patente = raw_input("Ingrese el numero de patente").lower()
+    if len(patente) <= 8:
         while cont < len(patente):
             while cont2 < 26:
                 if letras[cont2] == patente[cont]:
@@ -33,16 +33,19 @@ while True:
                         verificacion = verificacion + 1
                         if verificacion == 1 and cont == 0:
                             verificacion2 = 1
+                    # Cambia los valores de letras a numeros
                     coleccion = coleccion + diccionario[letras[cont2]]
                 cont2 = cont2 + 1
             cont = cont + 1
             cont2 = 0
-        if verificacion == 3 and veriftotal == 3:
+        # Verifica que la patente obtenida sea valida
+        if verificacion == 3 and veriftotal == 3 and len(patente) == 6:
             verificacion2 = 0
             print "Patente Valida"
             patente = str(coleccion) + str(patente[3:6])
             Funciones.calculocod(patente, coleccion)
             break
+        # Verifica que la patente obtenida sea valida
         elif verificacion2 == 1 and verificacion == 1 and veriftotal == 1:
             print "Patente Valida"
             patente = str(coleccion) + str(patente[1:len(patente)])
